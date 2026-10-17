@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import ErrorMessage from "../components/ErrorMessage";
+import Loading from "../components/Loading";
 import { deleteCourse, getCourseById } from "../api/courseApi";
 
 function CourseDetailPage() {
@@ -30,7 +32,7 @@ function CourseDetailPage() {
   }
 
   if (loading) {
-    return <p>Đang tải...</p>;
+    return <Loading />;
   }
 
   if (error) {
@@ -39,7 +41,7 @@ function CourseDetailPage() {
         <Link to="/catalogue" className="back-link">
           ← Tất cả danh mục
         </Link>
-        <p className="error">Lỗi: {error}</p>
+        <ErrorMessage message={error} />
       </div>
     );
   }

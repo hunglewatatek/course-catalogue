@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ErrorMessage from "../components/ErrorMessage";
+import Loading from "../components/Loading";
 import { getCategories } from "../api/courseApi";
 
 function CataloguePage() {
@@ -15,11 +17,11 @@ function CataloguePage() {
   }, []);
 
   if (loading) {
-    return <p>Đang tải...</p>;
+    return <Loading />;
   }
 
   if (error) {
-    return <p className="error">Lỗi: {error}</p>;
+    return <ErrorMessage message={error} />;
   }
 
   return (

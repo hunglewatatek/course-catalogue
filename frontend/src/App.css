@@ -157,3 +157,8 @@
   border-radius: 6px;
   font: inherit;
 }
+
+.loading {
+  color: #666;
+  font-style: italic;
+}

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import ErrorMessage from "../components/ErrorMessage";
+import Loading from "../components/Loading";
 import { getCoursesByCategory } from "../api/courseApi";
 
 function CategoryPage() {
@@ -25,11 +27,11 @@ function CategoryPage() {
   }, [category]);
 
   if (loading) {
-    return <p>Đang tải...</p>;
+    return <Loading />;
   }
 
   if (error) {
-    return <p className="error">Lỗi: {error}</p>;
+    return <ErrorMessage message={error} />;
   }
 
   return (
