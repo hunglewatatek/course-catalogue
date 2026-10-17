@@ -147,3 +147,13 @@
   color: #282c34;
   text-decoration: none;
 }
+
+.search-input {
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 16px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font: inherit;
+}
