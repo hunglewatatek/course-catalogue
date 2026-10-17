@@ -94,3 +94,37 @@
   color: #666;
   font-size: 14px;
 }
+
+.course-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.course-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.course-form input,
+.course-form textarea {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.course-form button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #61dafb;
+  cursor: pointer;
+}
+
+.course-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

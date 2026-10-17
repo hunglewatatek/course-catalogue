@@ -1,7 +1,7 @@
 const API_URL = "http://localhost:5000/api";
 
-async function request(path) {
-  const res = await fetch(`${API_URL}${path}`);
+async function request(path, options) {
+  const res = await fetch(`${API_URL}${path}`, options);
   const data = await res.json();
 
   if (!res.ok) {
@@ -20,4 +20,12 @@ export function getCoursesByCategory(category) {
 
 export function getCourseById(id) {
   return request(`/courses/${id}`);
+}
+
+export function createCourse(course) {
+  return request("/courses", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(course),
+  });
 }

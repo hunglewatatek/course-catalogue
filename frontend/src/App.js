@@ -6,6 +6,7 @@ import CataloguePage from "./pages/CataloguePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import CategoryPage from "./pages/CategoryPage";
 import CourseDetailPage from "./pages/CourseDetailPage";
+import NewCoursePage from "./pages/NewCoursePage";
 import "./App.css";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/catalogue" element={<CataloguePage />} />
           <Route path="/catalogue/:category" element={<CategoryPage />} />
           <Route path="/courses/:id" element={<CourseDetailPage />} />
+          <Route path="/courses/new" element={<NewCoursePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
