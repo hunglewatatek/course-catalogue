@@ -128,3 +128,22 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+.danger-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #d32f2f;
+  color: white;
+  cursor: pointer;
+}
+
+.edit-button {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  background: #61dafb;
+  color: #282c34;
+  text-decoration: none;
+}

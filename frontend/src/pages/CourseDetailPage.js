@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { getCourseById } from "../api/courseApi";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { deleteCourse, getCourseById } from "../api/courseApi";
 
 function CourseDetailPage() {
   const { id } = useParams();
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -17,6 +19,15 @@ function CourseDetailPage() {
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, [id]);
+
+  function handleDelete() {
+    if (!window.confirm(`Xóa khóa học "${course.title}"?`)) {
+      return;
+    }
+    deleteCourse(course.id)
+      .then(() => navigate(`/catalogue/${encodeURIComponent(course.category)}`))
+      .catch((err) => setError(err.message));
+  }
 
   if (loading) {
     return <p>Đang tải...</p>;
@@ -48,6 +59,12 @@ function CourseDetailPage() {
       </div>
 
       <p>{course.description}</p>
+      <Link to={`/courses/${course.id}/edit`} className="edit-button">
+        Sửa
+      </Link>
+      <button className="danger-button" onClick={handleDelete}>
+        Xóa khóa học
+      </button>
     </div>
   );
 }
